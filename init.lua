@@ -169,12 +169,6 @@ local function new(k)
                               { description = "Change screen to the "..key_nane, group = "Collision" })
           aw[#aw+1] = awful.key({ "Mod1", "Shift", "Control", "Mod4" }, key_nane, function () module.screen(k,true     ) end,
                                 { description = "Move tag screen to the "..key_nane, group = "Collision" })
-        if k == "left" or k =="right" then -- Conflict with my text editor, so I say no
-          aw[#aw+1] = awful.key({ "Mod1",          "Control"         }, key_nane, function () module.tag   (k,nil ,true) end,
-                                { description = "Select tag to the "..key_nane, group = "Collision" })
-          aw[#aw+1] = awful.key({ "Mod1", "Shift", "Control"         }, key_nane, function () module.tag   (k,true,true) end,
-                                { description = "Move tag to the "..key_nane, group = "Collision" })
-        end
       end
     end
     capi.root.keys(awful.util.table.join(capi.root.keys(),unpack(aw)))
