@@ -85,6 +85,8 @@ local function create_indicators()
 end
 
 function module.hide()
+    if beautiful.collision_resize_disabled then return end
+
     if not indicators then return end
 
     for k,v in ipairs(values) do indicators[v].visible = false end
@@ -96,6 +98,8 @@ function module.hide()
 end
 
 function module.display(c,toggle)
+    if beautiful.collision_resize_disabled then return end
+
     if type(c) ~= "client" then --HACK
         c = capi.client.focus
     end
